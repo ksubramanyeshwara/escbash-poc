@@ -1,0 +1,177 @@
+/* CSS/courses.css — Courses hub specific layout, separated filter pills, and track section dividers. */
+.courses-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+.courses-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+.rm-card-top {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.rm-card-top .rm-icon {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.rm-card-top .rm-icon .cm-logo {
+  width: 26px !important;
+  height: 26px !important;
+}
+.rm-card-top .rm-title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.25;
+  min-width: 0;
+}
+html[data-rm-view="list"] .hub-grid .rm-card,
+.hub-grid.is-list .rm-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto;
+  row-gap: 8px;
+}
+html[data-rm-view="list"] .hub-grid .rm-card-top,
+.hub-grid.is-list .rm-card-top {
+  grid-column: 1;
+  grid-row: 1;
+}
+html[data-rm-view="list"] .hub-grid .rm-copy,
+.hub-grid.is-list .rm-copy {
+  grid-column: 1;
+  grid-row: 2;
+}
+html[data-rm-view="list"] .hub-grid .rm-actions,
+.hub-grid.is-list .rm-actions {
+  grid-column: 2;
+  grid-row: 1 / 3;
+  align-self: center;
+}
+html[data-rm-view="list"] .hub-grid .rm-foot,
+.hub-grid.is-list .rm-foot {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
+.course-filter-switch {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.cf-tab {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--mute);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 9px 16px;
+  border-radius: 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.15s, background 0.15s, border-color 0.15s;
+}
+.cf-tab:hover {
+  color: var(--ink);
+  border-color: color-mix(in srgb, var(--ink) 25%, var(--line));
+}
+.cf-tab.active {
+  background: color-mix(in srgb, var(--lamp) 14%, var(--surface));
+  color: var(--ink);
+  border-color: var(--lamp);
+}
+
+#coursesContainer {
+  margin-top: 26px;
+}
+.part + .part {
+  margin-top: 34px;
+}
+.part h3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: clamp(18px, 1.9vw, 22px);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  color: var(--ink);
+  margin: 0 0 18px;
+}
+.part-title {
+  min-width: 0;
+}
+.part-rail-l,
+.part-rail-r {
+  position: relative;
+  height: 1.5px;
+  background: var(--dashed-line, var(--line));
+  flex-shrink: 0;
+}
+.part-rail-l {
+  width: 26px;
+}
+.part-rail-r {
+  flex: 1 1 28px;
+  min-width: 28px;
+  flex-shrink: 1;
+}
+.part-rail-l::after,
+.part-rail-r::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ink);
+  transform: translateY(-50%);
+}
+.part-rail-l::after {
+  right: -1px;
+}
+.part-rail-r::before {
+  left: -1px;
+}
+@media (max-width: 560px) {
+  .part h3 {
+    gap: 8px;
+    font-size: 17px;
+  }
+  .part-rail-l {
+    width: 16px;
+  }
+  .part-rail-r {
+    min-width: 18px;
+  }
+}
+#coursesContainer .hub-grid {
+  margin-top: 0;
+}
+:root[data-theme="dark"] .rm-icon.is-light-mark {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .rm-icon.is-light-mark {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+}

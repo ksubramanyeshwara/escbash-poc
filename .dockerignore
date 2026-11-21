@@ -1,0 +1,33 @@
+# Version control & docs
+.git/
+.gitignore
+README.md
+*.md
+
+# Docker files (not needed inside the web root)
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Environment & secrets
+.env
+.env.*
+
+# OS & editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs, cache & crash dumps
+*.log
+.cache/
+.temp/
+*.dmp
+core
+
+# Raw root-level recordings (keeps Assets/*.mp4)
+/*.mp4

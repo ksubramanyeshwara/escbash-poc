@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>escbash - courses</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    />
+    <script src="JS/theme-init.js"></script>
+    <link rel="stylesheet" href="CSS/roadmap-common.css" />
+    <link rel="stylesheet" href="CSS/roadmap.css" />
+    <link rel="stylesheet" href="CSS/courses.css" />
+  </head>
+  <body data-all-courses-href="index.html#paths">
+    <header class="top-header">
+        <div class="wrap header-inner">
+          <a href="index.html" class="brand-link" aria-label="escbash home">
+            <img src="data:image/webp;base64,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" alt="escbash" class="brand-logo">
+          </a>
+          <nav class="nav-links" aria-label="Main Navigation">
+            <button type="button" class="nav-link course-trigger active" id="courseMenuBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="courseMenuDropdown">Courses</button>
+            <button type="button" class="nav-link course-trigger" id="roadmapMenuBtn" aria-haspopup="menu" aria-expanded="false" aria-controls="roadmapMenuDropdown">Roadmaps</button>
+            <a href="index.html#journey" class="nav-link">Certifications</a>
+            <a href="index.html#bug-box" class="nav-link">Bug Box</a>
+            <a href="index.html#projects" class="nav-link">Projects</a>
+            <a href="index.html#interview-qa" class="nav-link">Interview Q&amp;A</a>
+            <a href="index.html#start" class="nav-link">Pricing</a>
+            <a href="index.html#voices" class="nav-link">Leaderboard</a>
+          </nav>
+          <div class="top-actions">
+            <a href="index.html#start" class="nav-signin">Sign in</a>
+            <a href="https://discord.gg" target="_blank" rel="noopener noreferrer" class="nav-icon-btn discord-btn" aria-label="Discord Community" title="Discord Community">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.956 2.419-2.157 2.419zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.086 2.157 2.419 0 1.334-.946 2.419-2.157 2.419z"></path>
+              </svg>
+            </a>
+            <button type="button" class="tbtn theme-toggle" id="theme" aria-label="Switch colour theme" title="Switch theme">
+              <svg class="theme-icon sun-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg class="theme-icon moon-ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="cm-panel" id="courseMenuDropdown" role="region" aria-label="Courses menu" style="left: 0px; width: 640px;">
+            <div class="cm-top">
+              <div class="cm-switch" role="tablist" aria-label="Course tracks">
+                
+                  <button type="button" class="cm-tab active" role="tab" aria-selected="true" data-cm-tab="devops"><span><span class="sc-interp">DevOps</span></span><span class="cm-tab-count"><span class="sc-interp">13 courses</span></span></button>
+                
+                  <button type="button" class="cm-tab" role="tab" aria-selected="false" data-cm-tab="cloud"><span><span class="sc-interp">Cloud</span></span><span class="cm-tab-count"><span class="sc-interp">6 courses</span></span></button>
+                
+                  <button type="button" class="cm-tab" role="tab" aria-selected="false" data-cm-tab="sre"><span><span class="sc-interp">SRE</span></span><span class="cm-tab-count"><span class="sc-interp">6 courses</span></span></button>
+                
+                  <button type="button" class="cm-tab" role="tab" aria-selected="false" data-cm-tab="ai"><span><span class="sc-interp">AI</span></span><span class="cm-tab-count"><span class="sc-interp">13 courses</span></span></button>
+                
+              </div>
+            </div>
+            <div class="cm-grid" id="cmGrid" role="tabpanel">
+              
+                <button type="button" class="cm-card active" data-course-name="Linux">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="data:image/png;base64,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"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Linux"><span class="sc-interp">Linux</span></div>
+                    <div class="cm-sub"><span class="sc-interp">22 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Networking">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjMDQ5RkQ5IiByb2xlPSJpbWciIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+Q2lzY288L3RpdGxlPjxwYXRoIGQ9Ik0xNi4zMzEgMTguMTcxVjE3LjA2bC0uMDIyLjAxYy0uMjUuMTIxLS41MjIuMTktLjgwMS4yMDNhMS4xODYgMS4xODYgMCAwMS0uODA2LS4yMzcgMS4wMzggMS4wMzggMCAwMS0uMzUyLS40OTggMS4yMSAxLjIxIDAgMDEtLjAyMy0uNjY3Yy4wNTItLjIyNS4xNzgtLjQyNi4zNTctLjU2OS4xNi0uMTM0LjM1NS0uMjE4LjU2Mi0uMjQyYTEuODUgMS44NSAwIDAxMS4wNjEuMTk4bC4wMjQuMDEzdi0xLjExN2wtLjA1MS0uMDE0YTIuODYyIDIuODYyIDAgMDAtMS4wMTEtLjEzMiAyLjM0IDIuMzQgMCAwMC0uOTAzLjIwNmMtLjI4Ny4xMzItLjU0LjMyNy0uNzM5LjU3MWEyLjIyMSAyLjIyMSAwIDAwLS4wNCAyLjcwNWMuMjk1LjM3OC43MDkuNjQ1IDEuMTc1Ljc1Ni40OTEuMTIgMS4wMDYuMTAyIDEuNDg3LS4wNTJsLjA4Mi0uMDIzTTUuMzM2IDE4LjE3MVYxNy4wNmwtLjAyMi4wMWMtLjI1LjEyMS0uNTIyLjE5LS44MDEuMjAzYTEuMTgzIDEuMTgzIDAgMDEtLjgwNi0uMjM3IDEuMDMgMS4wMyAwIDAxLS4zNTEtLjQ5OCAxLjIwMiAxLjIwMiAwIDAxLS4wMjQtLjY2N2MuMDUyLS4yMjUuMTc3LS40MjYuMzU3LS41NjkuMTYtLjEzNC4zNTUtLjIxOC41NjItLjI0MmExLjg1IDEuODUgMCAwMTEuMDYxLjE5OGwuMDI0LjAxM3YtMS4xMTdsLS4wNTEtLjAxNGEyLjg2MiAyLjg2MiAwIDAwLTEuMDExLS4xMzIgMi4zNDQgMi4zNDQgMCAwMC0uOTAzLjIwNiAyLjA4IDIuMDggMCAwMC0uNzQuNTcxIDIuMjI0IDIuMjI0IDAgMDAtLjA0MSAyLjcwNSAyLjExIDIuMTEgMCAwMDEuMTc2Ljc1NmMuNDkxLjEyIDEuMDA1LjEwMiAxLjQ4Ny0uMDUybC4wODMtLjAyM005LjI2IDE3LjI0OWwtLjAwNC45NTcuMDcuMDEyYy4yMi4wNDEuNDQxLjA2OS42NjQuMDg1LjE5NS4wMTkuMzkxLjAyMi41ODcuMDEyLjE4Ny0uMDE0LjM3Mi0uMDQ5LjU1MS0uMTA0LjIxLS4wNi40MDUtLjE2My41NzEtLjMwNWExLjE2IDEuMTYgMCAwMC4zMzMtLjQ3OCAxLjMxIDEuMzEgMCAwMC0uMDA3LS45NiAxLjA2OCAxLjA2OCAwIDAwLS4yOTgtLjQxNCAxLjI2MSAxLjI2MSAwIDAwLS40MzgtLjI1NWwtLjcyMi0uMjY4YS4zODguMzg4IDAgMDEtLjE5Ny0uMTg4LjI0NS4yNDUgMCAwMS4wMDgtLjIxOS4zODIuMzgyIDAgMDEuMTU0LS4xNDIuNzk4Ljc5OCAwIDAxLjI1Ny0uMDc0Yy4xNTMtLjAyMi4zMDgtLjAyMS40Ni4wMDUuMTguMDIuMzU4LjA1MS41MzMuMDk2bC4wMzguMDA4di0uODgzbC0uMDY5LS4wMTVhNC43NDkgNC43NDkgMCAwMC0uNTQzLS4wOTcgMi44NDQgMi44NDQgMCAwMC0uNzE0LS4wMDNjLS4zLjAyNy0uNTg1LjE0My0uODIxLjMzLS4xNi4xMjYtLjI4MS4yOTMtLjM1MS40ODQtLjEwNC4yOS0uMTA1LjYwOCAwIC44OTkuMDU0LjE0NS4xNC4yNzQuMjUyLjM4MS4wOTcuMDkzLjIwNy4xNzMuMzI3LjIzNi4xNTcuMDg0LjMyNC4xNDkuNDk3LjE5NS4wNTcuMDE3LjExNC4wMzUuMTcuMDU0bC4wODUuMDMxLjAyNC4wMWMuMDg0LjAzLjE2Mi4wNzguMjI2LjE0LjA0NS4wNDIuMDguMDk0LjEwMS4xNTFhLjMyNS4zMjUgMCAwMS4wMDEuMTYxLjMzOS4zMzkgMCAwMS0uMTY2LjE5OC44NTYuODU2IDAgMDEtLjI3NS4wODYgMi4wMzIgMi4wMzIgMCAwMS0uNDI3LjAyMSA1LjIwOCA1LjIwOCAwIDAxLS41NTctLjA3NCA5LjE5NSA5LjE5NSAwIDAxLS4yODctLjA2N2wtLjAzMy0uMDA2em0tMi40NzUuOTk1aDEuMDV2LTQuMTY3aC0xLjA1djQuMTY3em0xMi4xNjItMi45MzZhMS4wOTUgMS4wOTUgMCAwMTEuNTQxLjE1OCAxLjA5NCAxLjA5NCAwIDAxLS4xNTcgMS41NDFsLS4wMTcuMDE0YTEuMDk2IDEuMDk2IDAgMDEtMS4zNjctMS43MTNtLTEuNTI1Ljg1NGEyLjE5MyAyLjE5MyAwIDAwMi42NjYgMi4xMDcgMi4xMzkgMi4xMzkgMCAwMC43MDEtMy45MzcgMi4yMDcgMi4yMDcgMCAwMC0zLjM2NyAxLjgzTTIyLjk2MSAxMC43MjhhLjUyLjUyIDAgMDAxLjAzOSAwVjkuNTczYS41Mi41MiAwIDAwLTEuMDM5IDB2MS4xNTVNMjAuMTE3IDEwLjcyOGEuNTIyLjUyMiAwIDAwMS4wNDEgMFY4LjEzOWEuNTIxLjUyMSAwIDAwLTEuMDQgMHYyLjU4OU0xNy4yMzEgMTEuNzcxYS41MjEuNTIxIDAgMDAxLjAzOSAwVjYuMTdhLjUyLjUyIDAgMDAtMS4wMzkgMHY1LjYwMU0xNC4zOTMgMTAuNzI4YS41MjEuNTIxIDAgMDAxLjA0IDBWOC4xMzlhLjUyLjUyIDAgMDAtMS4wMzkgMHYyLjU4OU0xMS40OTQgMTAuNzI4YS41MjIuNTIyIDAgMDAxLjAzOSAwVjkuNTczYS41Mi41MiAwIDAwLTEuMDM5IDB2MS4xNTVNOC42MjQgMTAuNzI4YS41Mi41MiAwIDAwMS4wMzkgMFY4LjEzOWEuNTIuNTIgMCAwMC0xLjAzOSAwdjIuNTg5TTUuNzM3IDExLjc3MWEuNTIuNTIgMCAwMDEuMDM5IDBWNi4xN2EuNTIuNTIgMCAwMC0xLjAzOSAwdjUuNjAxTTIuODc2IDEwLjcyOGEuNTIyLjUyMiAwIDAwMS4wNCAwVjguMTM5YS41Mi41MiAwIDAwLTEuMDM5IDB2Mi41ODlNMCAxMC43MjhhLjUyMS41MjEgMCAwMDEuMDM5IDBWOS41NzNhLjUyLjUyIDAgMDAtMS4wMzkgMHYxLjE1NSIvPjwvc3ZnPg=="></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Networking"><span class="sc-interp">Networking</span></div>
+                    <div class="cm-sub"><span class="sc-interp">32 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Shell Scripting">
+                  <div class="cm-logo-wrap is-light-mark"><img class="cm-logo" alt="" src="images/tech/bash-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Shell Scripting"><span class="sc-interp">Shell Scripting</span></div>
+                    <div class="cm-sub"><span class="sc-interp">16 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Docker">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/docker-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Docker"><span class="sc-interp">Docker</span></div>
+                    <div class="cm-sub"><span class="sc-interp">21 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Kubernetes">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/kubernetes-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Kubernetes"><span class="sc-interp">Kubernetes</span></div>
+                    <div class="cm-sub"><span class="sc-interp">30 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Python for DevOps">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/python-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Python for DevOps"><span class="sc-interp">Python for DevOps</span></div>
+                    <div class="cm-sub"><span class="sc-interp">31 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Go for DevOps">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/go-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Go for DevOps"><span class="sc-interp">Go for DevOps</span></div>
+                    <div class="cm-sub"><span class="sc-interp">30 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Helm">
+                  <div class="cm-logo-wrap is-light-mark"><img class="cm-logo" alt="" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjMEYxNjg5IiBkPSJNMzUuNSAzMC41Yy0uMi0uMS0uMy0uMy0uNS0uNC0zLjItMy4xLTUuNy02LjgtNy4yLTExLjEtLjQtMS4yLS43LTIuNC0uNy0zLjd2LS40Yy4xLTEuNyAxLjItMi41IDIuOC0yLjEuNS4xIDEgLjMgMS40LjYgMS44LjkgMy4yIDIuMiA0LjUgMy43IDIuMyAyLjUgNC4yIDUuNSA1LjUgOC43IDAgLjEuMS4yLjEuMnMuMS4xLjIuMWM2LjItMy44IDEzLjMtNi4xIDIwLjYtNi41LS4xLS4yLS4xLS40LS4xLS42LS43LTMuMS0xLTYuNC0uNy05LjYuMS0xLjkuNS0zLjggMS4xLTUuNy4zLTEgLjgtMS44IDEuNC0yLjYuMi0uMy41LS41LjgtLjcuNi0uNCAxLjQtLjQgMiAwIC42LjQgMS4xIDEgMS41IDEuNy42IDEuMiAxLjEgMi41IDEuMyAzLjguNiAyLjguOCA1LjcuNSA4LjYtLjEgMS43LS40IDMuNS0uOSA1LjIgMS44LjMgMy42LjYgNS40IDEgMS44LjQgMy41LjkgNS4yIDEuNiAxLjcuNiAzLjQgMS40IDUgMi4yIDEuNi44IDMuMSAxLjggNC43IDIuNy4xLS4xLjEtLjIuMi0uNCAxLjctNC43IDQuNi04LjkgOC40LTEyLjIuOS0uOCAxLjktMS40IDMtMS44LjMtLjEuNi0uMi45LS4yIDEuNi0uMiAyLjMuOCAyLjQgMi4xLjEuOSAwIDEuOC0uMiAyLjctLjYgMi4zLTEuNSA0LjQtMi43IDYuNC0xLjcgMi45LTMuOCA1LjQtNi40IDcuNS0uMS4xLS4yLjEtLjMuMyAyLjUgMi40IDQuOCA1LjEgNi44IDgtLjIgMC0uMy4xLS40LjFIOTNjLS4zIDAtLjYtLjItLjgtLjQtNS45LTYuNi0xMy44LTEwLjgtMjIuNC0xMi4xLTIuNS0uNC01LjEtLjUtNy43LS4zLTcuNi41LTE1IDMuNC0yMC45IDguMy0xLjUgMS4yLTMgMi42LTQuMyA0LjEtLjIuMy0uNi41LTEgLjVoLTguM2MuMi0uNiAxLjctMi44IDMuNS00LjggMS41LTEuNiAyLjktMyA0LjQtNC41em02NS40IDU4LjljLTEuOCAyLjYtMy44IDQuOS02LjEgNy4xLjIuMi4zLjMuNS40IDMuOSAzLjMgNi45IDcuNiA4LjYgMTIuNS40IDEuMi42IDIuNS42IDMuNyAwIC4zLS4xLjYtLjIgMS0uMy45LTEuMiAxLjUtMi4xIDEuMy0uNi0uMS0xLjItLjMtMS43LS41LS44LS40LTEuNi0uOS0yLjMtMS41LTMuOC0zLjItNi43LTcuNC04LjQtMTIuMS0uMS0uMS0uMS0uMy0uMi0uNS0yIDEuNC00LjEgMi42LTYuMyAzLjZzLTQuNSAxLjktNi44IDIuNWMtMi40LjYtNC43IDEuMS03LjIgMS40LjEuMi4xLjQuMS42LjggMy4xIDEgNi4zLjggOS41LS4xIDItLjUgMy45LTEuMSA1LjgtLjMuOC0uNyAxLjUtMS4xIDIuMy0uMi4zLS40LjUtLjYuOC0xIDEuMS0yLjIgMS4xLTMuMiAwLS40LS40LS43LS45LTEtMS41LS44LTEuNS0xLjItMy4xLTEuNS00LjgtLjQtMi4zLS41LTQuNi0uNC02LjkuMS0xLjcuMy0zLjQuNy01IDAtLjEuMS0uMy4xLS40IDAgMCAwLS4xLS4xLS4yLTcuMy0uNC0xNC4zLTIuNi0yMC42LTYuNWwtLjMuNmMtMS44IDQuMi00LjQgNy45LTcuOCAxMC44LS45LjgtMS45IDEuNC0zIDEuOC0uNS4yLTEuMS4zLTEuNi4yLS42LS4xLTEuMS0uNS0xLjQtMS4yLS40LS45LS4zLTEuOC0uMi0yLjcuMi0xLjMuNi0yLjUgMS4xLTMuNyAxLjUtMy43IDMuOS03IDYuNy05LjguMS0uMS4yLS4yLjQtLjMgMC0uMS4xLS4xLjEtLjItMi43LTIuNC01LjItNS4xLTcuMi04LjEuMyAwIC40LS4xLjYtLjFoOGMuNCAwIC43LjIuOS40IDIuOSAzLjEgNi4zIDUuNiAxMCA3LjUgMy45IDIuMSA4LjIgMy40IDEyLjYgMy44IDEyIDEuMiAyMi4zLTIuNSAzMC45LTExLjEuNC0uNC45LS43IDEuNS0uNmg4LjFsLjEuMXptLTExLjEtMzljLjcgMCAxLjQuMSAyLjEgMCAuOC0uMSAxLjMuMiAxLjkuNyAzLjIgMyA2LjQgNiA5LjcgOWwuNS41Yy4yLS4yLjQtLjMuNi0uNSAzLjMtMy4xIDYuNy02LjIgOS45LTkuMy4zLS4zLjctLjQgMS4xLS40aDIuNXYyNy40Yy0uNC4xLTYuMy4yLTcgMFY2My45bC0uMS0uMWMtMi4zIDIuMS00LjYgNC4zLTYuOSA2LjQtMi4zLTIuMi00LjYtNC4zLTctNi40bC0uMS4xdjE0aC03Yy0uMi0uNS0uMy0yNS45LS4yLTI3LjV6bS02NC4yIDBoNi45Yy4yLjUuMiAyNi44IDAgMjcuNGgtNi45Yy0uMS0xLjcgMC0zLjUgMC01LjJ2LTUuMkgxN3YxMC4zYy0uNS4yLTYuNC4yLTcgMFY1MC40aDd2OS43Yy41LjIgNy44LjIgOC42IDB2LTkuN3ptMTUuMiAyNy40VjUwLjVjLjQtLjEgMTUuNi0uMiAxNi42LS4xdjUuOGMtLjIgMC0uNS4xLS43LjFoLTguOXY0LjVoOC41djZoLTguNGMtLjIuNS0uMiA0LjEtLjEgNS4xLjIgMCAuNS4xLjcuMWg4Ljl2NS44SDQwLjh6bTI0LjYgMGMtLjEtLjctLjEtMjYuOSAwLTI3LjRoNi45djIwLjJjLjMgMCAuNSAwIC44LjFIODJ2Ny4ybC0xNi42LS4xeiIvPjwvc3ZnPg0K"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Helm"><span class="sc-interp">Helm</span></div>
+                    <div class="cm-sub"><span class="sc-interp">27 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Argo CD">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/argocd-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Argo CD"><span class="sc-interp">Argo CD</span></div>
+                    <div class="cm-sub"><span class="sc-interp">11 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Terraform with AWS">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/terraform-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Terraform with AWS"><span class="sc-interp">Terraform with AWS</span></div>
+                    <div class="cm-sub"><span class="sc-interp">33 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Git">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/git-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Git"><span class="sc-interp">Git</span></div>
+                    <div class="cm-sub"><span class="sc-interp">24 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="GitHub Actions">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/githubactions-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="GitHub Actions"><span class="sc-interp">GitHub Actions</span></div>
+                    <div class="cm-sub"><span class="sc-interp">26 modules</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-course-name="Observability Fundamentals">
+                  <div class="cm-logo-wrap"><img class="cm-logo" alt="" src="images/tech/grafana-original.svg"></div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Observability Fundamentals"><span class="sc-interp">Observability Fundamentals</span></div>
+                    <div class="cm-sub"><span class="sc-interp">20 modules</span></div>
+                  </div>
+                </button>
+              
+            </div>
+            <div class="cm-foot">
+              <span class="cm-cli" id="cmCli"><span class="sc-interp">root@escbash:~# ls /courses/devops</span></span>
+              <a href="#paths" class="cm-all" id="cmAllLink">
+                <span>All courses</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <div class="cm-panel" id="roadmapMenuDropdown" role="region" aria-label="Roadmaps menu" style="left: 0px; width: 640px;">
+            <div class="cm-top">
+              <div class="cm-switch" role="tablist" aria-label="Roadmap tracks">
+                
+                  <button type="button" class="cm-tab active" role="tab" aria-selected="true" data-cm-tab="all"><span><span class="sc-interp">All paths</span></span><span class="cm-tab-count"><span class="sc-interp">6 paths</span></span></button>
+                
+                  <button type="button" class="cm-tab" role="tab" aria-selected="false" data-cm-tab="engineering"><span><span class="sc-interp">Engineering</span></span><span class="cm-tab-count"><span class="sc-interp">2 paths</span></span></button>
+                
+                  <button type="button" class="cm-tab" role="tab" aria-selected="false" data-cm-tab="ops"><span><span class="sc-interp">Ops &amp; Sec</span></span><span class="cm-tab-count"><span class="sc-interp">3 paths</span></span></button>
+                
+                  <button type="button" class="cm-tab" role="tab" aria-selected="false" data-cm-tab="data"><span><span class="sc-interp">Data &amp; AI</span></span><span class="cm-tab-count"><span class="sc-interp">2 paths</span></span></button>
+                
+              </div>
+            </div>
+            <div class="cm-grid" id="rmGrid" role="tabpanel">
+              
+                <button type="button" class="cm-card" data-roadmap-name="AI engineer">
+                  <div class="cm-logo-wrap rm-icon-tile rm-icon-violet">
+                    
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3z"></path>
+                        <path d="M5.5 16.5l.9 2.1 2.1.9-2.1.9-.9 2.1-.9-2.1-2.1-.9 2.1-.9.9-2.1z"></path>
+                      </svg>
+                    
+                    
+                    
+                    
+                    
+                    
+                  </div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="AI engineer"><span class="sc-interp">AI engineer</span></div>
+                    <div class="cm-sub"><span class="sc-interp">12 courses · 120 h</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-roadmap-name="DevOps engineer">
+                  <div class="cm-logo-wrap rm-icon-tile rm-icon-cyan">
+                    
+                    
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M18.178 8c5.096 0 5.096 8 0 8-5.095 0-7.133-8-12.739-8-4.585 0-4.585 8 0 8 5.606 0 7.644-8 12.74-8z">
+                        </path>
+                      </svg>
+                    
+                    
+                    
+                    
+                    
+                  </div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="DevOps engineer"><span class="sc-interp">DevOps engineer</span></div>
+                    <div class="cm-sub"><span class="sc-interp">14 courses · 110 h</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-roadmap-name="SRE engineer">
+                  <div class="cm-logo-wrap rm-icon-tile rm-icon-green">
+                    
+                    
+                    
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.95" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="22 12 18 12 15 20 9 4 6 12 2 12"></polyline>
+                      </svg>
+                    
+                    
+                    
+                    
+                  </div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="SRE engineer"><span class="sc-interp">SRE engineer</span></div>
+                    <div class="cm-sub"><span class="sc-interp">11 courses · 95 h</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-roadmap-name="Security engineer">
+                  <div class="cm-logo-wrap rm-icon-tile rm-icon-blue">
+                    
+                    
+                    
+                    
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <path d="M9 12l2 2 4-4"></path>
+                      </svg>
+                    
+                    
+                    
+                  </div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Security engineer"><span class="sc-interp">Security engineer</span></div>
+                    <div class="cm-sub"><span class="sc-interp">13 courses · 105 h</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card active" data-roadmap-name="Data engineer">
+                  <div class="cm-logo-wrap rm-icon-tile rm-icon-teal">
+                    
+                    
+                    
+                    
+                    
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <ellipse cx="12" cy="5" rx="8" ry="3"></ellipse>
+                        <path d="M4 5v6c0 1.66 3.58 3 8 3s8-1.34 8-3V5"></path>
+                        <path d="M4 11v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6"></path>
+                      </svg>
+                    
+                    
+                  </div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Data engineer"><span class="sc-interp">Data engineer</span></div>
+                    <div class="cm-sub"><span class="sc-interp">7 courses · 96 h</span></div>
+                  </div>
+                </button>
+              
+                <button type="button" class="cm-card" data-roadmap-name="Cloud engineer">
+                  <div class="cm-logo-wrap rm-icon-tile rm-icon-sky">
+                    
+                    
+                    
+                    
+                    
+                    
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9z"></path>
+                      </svg>
+                    
+                  </div>
+                  <div class="cm-meta">
+                    <div class="cm-title" title="Cloud engineer"><span class="sc-interp">Cloud engineer</span></div>
+                    <div class="cm-sub"><span class="sc-interp">10 courses · 90 h</span></div>
+                  </div>
+                </button>
+              
+            </div>
+            <div class="cm-foot">
+              <span class="cm-cli" id="rmCli"><span class="sc-interp">root@escbash:~# ls /roadmaps</span></span>
+              <a href="roadmap.html" class="cm-all" id="rmAllLink">
+                <span>All roadmaps</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+    <main class="hub-main">
+      <div class="wrap">
+        <div class="hub-top fade-up">
+          <div>
+            <h1 class="hub-title">Courses</h1>
+            <p class="hub-sub">
+              Explore hands-on DevOps, Cloud, SRE, and AI courses.
+            </p>
+          </div>
+        </div>
+        <div class="courses-toolbar fade-up">
+          <div class="course-filter-switch" id="courseTrackFilter" role="tablist" aria-label="Filter courses by track">
+            <button type="button" class="cf-tab active" role="tab" aria-selected="true" data-track="all">All</button>
+            <button type="button" class="cf-tab" role="tab" aria-selected="false" data-track="devops">DevOps</button>
+            <button type="button" class="cf-tab" role="tab" aria-selected="false" data-track="cloud">Cloud</button>
+            <button type="button" class="cf-tab" role="tab" aria-selected="false" data-track="sre">SRE</button>
+            <button type="button" class="cf-tab" role="tab" aria-selected="false" data-track="ai">AI</button>
+          </div>
+          <div class="courses-toolbar-right">
+            <div class="rm-legend" aria-label="Course status legend">
+              <span class="rm-legend-item"><span class="rm-badge-dot is-completed" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg></span><span>Completed</span></span>
+              <span class="rm-legend-item"><span class="rm-badge-dot is-progress" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 2a6 6 0 0 1 0 12V2z"/></svg></span><span>In progress</span></span>
+            </div>
+            <div class="view-switch" role="group" aria-label="Layout view">
+            <button
+              type="button"
+              class="vs-btn active"
+              id="viewGridBtn"
+              data-view="grid"
+              aria-pressed="true"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                <rect x="14" y="14" width="7" height="7" rx="1.5" />
+              </svg>
+              <span>Grid</span>
+            </button>
+            <button
+              type="button"
+              class="vs-btn"
+              id="viewListBtn"
+              data-view="list"
+              aria-pressed="false"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <line x1="8" y1="6" x2="21" y2="6" />
+                <line x1="8" y1="12" x2="21" y2="12" />
+                <line x1="8" y1="18" x2="21" y2="18" />
+                <circle cx="4" cy="6" r="1" fill="currentColor" stroke="none" />
+                <circle cx="4" cy="12" r="1" fill="currentColor" stroke="none" />
+                <circle cx="4" cy="18" r="1" fill="currentColor" stroke="none" />
+              </svg>
+              <span>List</span>
+            </button>
+          </div>
+          </div>
+        </div>
+        <div id="coursesContainer"></div>
+      </div>
+    </main>
+
+    <footer class="foot fade-up" style="width: 100%; margin: 96px 0px 0px; padding: 0px clamp(20px, 3.5vw, 48px) 24px; box-sizing: border-box; height: auto;">
+          <div class="foot-grid" style="border-top: 1px solid var(--line); padding-top: 48px; display: grid; grid-template-columns: minmax(240px, 1.8fr) repeat(3, minmax(140px, 1fr)); gap: clamp(24px, 4vw, 48px);">
+            <div style="max-width: 320px;">
+              <a href="index.html" aria-label="escbash home" style="display: inline-flex; align-items: center; gap: 8px;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: var(--pill-bg); border: 1px solid var(--line); color: var(--lamp); font: 600 12px &quot;IBM Plex Mono&quot;, monospace;">esc</span><span style="font: 600 17px &quot;IBM Plex Mono&quot;, monospace; color: var(--lamp);">bash</span></a>
+              <p style="margin: 14px 0px 0px; color: var(--mute); font-size: 14px; line-height: 1.6;">Hands-on labs on real Linux
+                machines.</p>
+            </div>
+            <div class="foot-col" style="display: flex; flex-direction: column; gap: 12px; color: var(--ink); font-size: 14px;">
+              <div style="font: 700 12px Manrope, sans-serif; letter-spacing: 0.1em; color: var(--mute);">PRODUCT</div><a href="index.html#paths">Catalog</a><a href="roadmap.html">Roadmaps</a><a href="index.html#journey">Skills</a><a href="index.html#interview-qa">Interview Q&amp;A</a><a href="index.html#paths">Docs</a><a href="index.html#voices">Leaderboard</a><a href="index.html#paths">Tutorials</a><a href="index.html#start">Pricing</a>
+            </div>
+            <div class="foot-col" style="display: flex; flex-direction: column; gap: 12px; color: var(--ink); font-size: 14px;">
+              <div style="font: 700 12px Manrope, sans-serif; letter-spacing: 0.1em; color: var(--mute);">COMPANY</div><a href="#top">About</a><a href="#top">Partners</a><a href="#top">Careers</a><a href="#top">Terms</a><a href="#top">Privacy</a><a href="#top">Cancellation &amp; Refunds</a><a href="#top">Shipping
+                Policy</a><a href="#top">Contact</a>
+            </div>
+            <div class="foot-col" style="display: flex; flex-direction: column; gap: 12px; color: var(--ink); font-size: 14px;">
+              <div style="font: 700 12px Manrope, sans-serif; letter-spacing: 0.1em; color: var(--mute);">SOCIAL</div><a href="#top">GitHub</a><a href="#top">Discord</a><a href="#top">YouTube</a><a href="#top">Udemy</a>
+            </div>
+          </div>
+          <div style="margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; font: 400 12px &quot;IBM Plex Mono&quot;, monospace; color: var(--mute);">
+            <span>© 2026 escbash</span><span>runs on real machines</span>
+          </div>
+        </footer>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+    <script src="JS/common.js"></script>
+    <script src="JS/courses.js"></script>
+  </body>
+</html>

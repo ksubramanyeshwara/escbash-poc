@@ -1,0 +1,41 @@
+# Node.js & package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment variables & local secrets
+.env
+.env.local
+.env.*.local
+
+# Operating System artifacts
+.DS_Store
+.DS_Store?
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor & IDE settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Logs and temporary files
+*.log
+.cache/
+.temp/
+
+# Raw video recordings generated in the root directory
+# (Note: Production videos used by the site are preserved inside Assets/)
+/*.mp4
+
+# Chrome DevTools / Headless crash dumps
+*.dmp
+core
