@@ -201,7 +201,7 @@
       }
       .rm-card {
         display: grid;
-        grid-template-columns: auto 1fr auto;
+        grid-template-columns: auto minmax(0, 1fr) auto;
         grid-template-rows: auto 1fr auto auto;
         column-gap: 12px;
         text-align: left;
@@ -705,33 +705,20 @@
       .foot a:hover { color: var(--ink); }
 
       /* Foot grid & additional header styles */
-      .foot { width: 100%; box-sizing: border-box; }
-      .foot-grid {
-        border-top: 1px solid var(--line);
-        padding-top: 48px;
-        display: grid;
-        grid-template-columns: minmax(240px, 1.8fr) repeat(3, minmax(140px, 1fr));
-        gap: clamp(24px, 4vw, 48px);
-      }
-      @media (max-width: 960px) {
-        .foot-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 40px 32px !important;
-        }
-      }
-      @media (max-width: 540px) {
-        .foot-grid {
-          grid-template-columns: 1fr !important;
-          gap: 36px !important;
-        }
-      }
-      .foot a { color: var(--mute); transition: color 0.15s ease; text-decoration: none; }
-      .foot a:hover { color: var(--ink); }
       .discord-btn:hover {
         color: #5865f2 !important;
         background: rgba(88, 101, 242, 0.14) !important;
         border-color: rgba(88, 101, 242, 0.4) !important;
         transform: scale(1.12);
+      }
+
+      /* ===== PHASE 5 RESPONSIVE POLISH (ROADMAP HUB) ===== */
+      .rm-title {
+        min-width: 0;
+      }
+      .rm-foot {
+        flex-wrap: wrap;
+        gap: 6px 12px;
       }
       .nav-signin {
         font-size: 14.5px;
@@ -746,3 +733,8 @@
       .nav-signin:hover {
         background: color-mix(in srgb, var(--ink) 8%, transparent);
       }
+
+@media (pointer: coarse) {
+  .rm-status-btn, .rm-arrow { width: 40px; height: 40px; }
+  .vs-btn { min-height: 40px; }
+}

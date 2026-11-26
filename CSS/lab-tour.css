@@ -23,6 +23,10 @@
   position: fixed;
   z-index: 10000;
   width: min(360px, calc(100vw - 24px));
+  max-height: calc(100vh - 24px);
+  max-height: calc(100dvh - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
   background: var(--surface, #18181b);
   color: var(--ink, #f4f4f5);
   border: 1px solid var(--line, #2e2e34);

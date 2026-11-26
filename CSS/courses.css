@@ -13,6 +13,9 @@
   gap: 14px;
   flex-wrap: wrap;
 }
+.hub-grid .rm-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
 .rm-card-top {
   grid-column: 1;
   grid-row: 1;
@@ -47,7 +50,10 @@ html[data-rm-view="list"] .hub-grid .rm-card,
   row-gap: 8px;
 }
 html[data-rm-view="list"] .hub-grid .rm-card-top,
-.hub-grid.is-list .rm-card-top {
+.hub-grid.is-list .hub-grid .rm-card {
+  grid-template-columns: minmax(0, 1fr) auto;
+}
+.rm-card-top {
   grid-column: 1;
   grid-row: 1;
 }
@@ -174,4 +180,8 @@ html[data-rm-view="list"] .hub-grid .rm-foot,
     background: rgba(255, 255, 255, 0.9);
     border-color: rgba(255, 255, 255, 0.25);
   }
+}
+
+@media (pointer: coarse) {
+  .cf-tab { min-height: 44px; display: inline-flex; align-items: center; }
 }

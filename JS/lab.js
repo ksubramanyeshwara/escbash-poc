@@ -1,19 +1,4 @@
 (function () {
-          var s = document.getElementById("stage");
-          if (window.matchMedia("(max-width:1280px)").matches) return;
-          var w = document.documentElement.clientWidth || innerWidth,
-            h = document.documentElement.clientHeight || innerHeight,
-            k = Math.min(w / 1740, h / 904),
-            x = Math.max(0, w / k - 1740),
-            y = Math.max(0, h / k - 904);
-          s.style.setProperty("--x", x + "px");
-          s.style.setProperty("--y", y + "px");
-          s.style.transform = "scale(" + k + ")";
-          s.style.left = (w - (1740 + x) * k) / 2 + "px";
-          s.style.top = (h - (904 + y) * k) / 2 + "px";
-        })();
-
-(function () {
         var s = document.getElementById("stage");
         var vm = "",
           YS = 468,
@@ -25,7 +10,7 @@
           xx = 0,
           yy = 0;
         function fit() {
-          if (window.matchMedia("(max-width:1280px)").matches) {
+          if (window.matchMedia("(max-width:1023px)").matches) {
             xx = 0;
             yy = 0;
             s.style.transform = "none";
@@ -39,22 +24,18 @@
           }
           var w = document.documentElement.clientWidth || innerWidth,
             h = document.documentElement.clientHeight || innerHeight;
-          /* FLUID: the canvas renders at 100% zoom (no uniform scale), so text
-             stays full-size on every screen. A viewport narrower than 1740px
-             narrows the terminal column first (floor 580px collapsed / 460px
-             with the sidebar open), then the lesson column shares the rest via
-             --xl (floor 520px); wider viewports still hand the surplus to the
-             terminal. Height deficit flows into --y (heights are
-             calc(904px + var(--y))). The .b layout keeps legacy behaviour. */
+          if (w <= 1280 && !s.classList.contains("c")) {
+            s.classList.add("c");
+          }
           var def = 1740 - w,
             x,
             xlGive = 0;
-          if (def > 0 && !s.classList.contains("b")) {
+          if (def > 0) {
             var cMode = s.classList.contains("c"),
               base = cMode ? 1041 : 768,
-              xCap = base - (cMode ? 580 : 460);
+              xCap = Math.max(0, base - (cMode ? 520 : 420));
             x = -Math.min(def, xCap);
-            xlGive = Math.max(0, Math.min(def - xCap, 166));
+            xlGive = Math.max(0, Math.min(def - xCap, 259));
           } else {
             x = Math.max(0, w - 1740);
           }
@@ -76,6 +57,10 @@
             setD(dd);
         }
         addEventListener("resize", fit);
+        addEventListener("load", fit);
+        if (window.ResizeObserver) {
+          new ResizeObserver(fit).observe(document.documentElement);
+        }
         addEventListener("orientationchange", function () {
           setTimeout(fit, 150);
         });
@@ -799,6 +784,7 @@
           return vm == "vs" ? YS - 121 : 783 + yy;
         }
         function fitSx() {
+          if (window.matchMedia("(max-width:1023px)").matches) return;
           var h = ckTarget();
           var nh = Math.max(120, BH() - (h ? h + 10 : 0)) + "px";
           $("sx").style.height = nh;
@@ -1940,10 +1926,7 @@
           e.preventDefault();
         });
         rz.addEventListener("pointermove", function (e) {
-          if (dg)
-            setD(
-              d0 + (e.clientX - sx0) / (s.getBoundingClientRect().width / 1740),
-            );
+          if (dg) setD(d0 + (e.clientX - sx0));
         });
         function dup() {
           dg = 0;
@@ -2036,11 +2019,21 @@
             if (m) s.classList.add(m);
             fit();
             setD(0);
-            var lc = $("lc");
+            var lc = $("lc"),
+              aiBtn = $("ai"),
+              rgEl = $("rg");
             if (m == "vt") {
-              var r = $("rg");
-              r.insertBefore(lc, r.firstChild);
-            } else $("hd").appendChild(lc);
+              rgEl.insertBefore(lc, rgEl.firstChild);
+            } else {
+              $("hd").appendChild(lc);
+            }
+            if (aiBtn) {
+              if (m == "vs") {
+                $("hd").appendChild(aiBtn);
+              } else if (rgEl && aiBtn.parentNode !== rgEl) {
+                rgEl.appendChild(aiBtn);
+              }
+            }
             go(step);
             fitSx();
             tsFit();
@@ -2094,7 +2087,7 @@
               if (!vT) {
                 s.classList.remove("vf");
                 if (
-                  !window.matchMedia("(max-width:1280px)").matches &&
+                  !window.matchMedia("(max-width:1023px)").matches &&
                   typeof focusActiveTerm === "function"
                 )
                   focusActiveTerm();
@@ -3304,6 +3297,10 @@
           var tsObj = termSessions[cur];
           if (tsObj && lab.on && TY[cur] === "term")
             tsObj.inp.focus({ preventScroll: true });
+            if (document.body.classList.contains("msplit")) {
+              var tzEl = document.getElementById("tz");
+              if (tzEl) tzEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
         };
         window.syncLabShell = function (on) {
           if (!on) {
@@ -3315,11 +3312,15 @@
             var tsObj = termSessions[cur];
             if (
               tsObj &&
-              !window.matchMedia("(max-width:1280px)").matches &&
+              !window.matchMedia("(max-width:1023px)").matches &&
               TY[cur] === "term"
             ) {
               setTimeout(function () {
                 tsObj.inp.focus({ preventScroll: true });
+            if (document.body.classList.contains("msplit")) {
+              var tzEl = document.getElementById("tz");
+              if (tzEl) tzEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
               }, 20);
             }
           }
@@ -3376,6 +3377,10 @@
               );
             });
             tsObj.inp.focus({ preventScroll: true });
+            if (document.body.classList.contains("msplit")) {
+              var tzEl = document.getElementById("tz");
+              if (tzEl) tzEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
           } else if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(rawCmd).catch(function () {});
           }
@@ -3443,7 +3448,8 @@
           e.parentNode.insertBefore(d, e.nextSibling);
         });
         function setY(v) {
-          YS = Math.max(300, Math.min(700, Math.round(v)));
+          var maxY = Math.max(360, 904 + yy - 180);
+          YS = Math.max(180, Math.min(maxY, Math.round(v)));
           s.style.setProperty("--Ys", YS + "px");
           fitSx();
           tsFit();
@@ -3665,7 +3671,7 @@
         var stage = $("stage"),
           body = document.body,
           lz = $("lz");
-        var mq = window.matchMedia("(max-width:1280px)");
+        var mq = window.matchMedia("(max-width:1023px)");
         var list = $("msteps"),
           drawer = $("mdrawer"),
           scrim = $("mscrim"),
@@ -3789,9 +3795,12 @@
         function syncMbarOffset() {
           if (!lz) return;
           if (mq.matches && mbarEl && getComputedStyle(mbarEl).display !== "none") {
-            lz.style.setProperty("padding-top", mbarEl.offsetHeight + "px", "important");
+            var mh = mbarEl.offsetHeight + "px";
+            lz.style.setProperty("padding-top", mh, "important");
+            document.documentElement.style.setProperty("--mh", mh);
           } else {
             lz.style.removeProperty("padding-top");
+            document.documentElement.style.removeProperty("--mh");
           }
         }
         if (window.ResizeObserver && mbarEl) {
@@ -4093,12 +4102,22 @@
         var ap = $("ap"),
           apHome = ap ? ap.parentNode : null,
           mobileAutoSplit = false;
+        var lapEl = $("lessonAudioPlayer"),
+          lapHome = lapEl ? lapEl.parentNode : null;
         function placeChat() {
-          if (!ap) return;
-          if (mq.matches) {
-            if (ap.parentNode !== stage) stage.appendChild(ap);
-          } else if (apHome && ap.parentNode !== apHome) {
-            apHome.appendChild(ap);
+          if (ap) {
+            if (mq.matches) {
+              if (ap.parentNode !== stage) stage.appendChild(ap);
+            } else if (apHome && ap.parentNode !== apHome) {
+              apHome.appendChild(ap);
+            }
+          }
+          if (lapEl) {
+            if (mq.matches) {
+              if (lz && lapEl.parentNode !== lz) lz.appendChild(lapEl);
+            } else if (lapHome && lapEl.parentNode !== lapHome) {
+              lapHome.appendChild(lapEl);
+            }
           }
         }
         function onBreakpointChange() {
@@ -4229,7 +4248,7 @@
         });
 
         /* mobile default: lesson on top, terminal below */
-        if (window.matchMedia("(max-width:1280px)").matches) {
+        if (window.matchMedia("(max-width:1023px)").matches) {
           mobileAutoSplit = true;
           if (!stage.classList.contains("vs")) $("lm3").click();
           openTerminal(true, true);
@@ -4675,7 +4694,7 @@
   var initialState = null;
 
   function isMobile() {
-    return window.innerWidth <= 900;
+    return window.matchMedia("(max-width: 1023px)").matches;
   }
 
   function $(id) {
@@ -4683,17 +4702,15 @@
   }
 
   function closeMobileDrawer() {
-    var d = $("mdrawer");
     var x = $("mdrawerx");
-    if (d && d.classList.contains("open") && x) {
+    if (document.body.classList.contains("mopen") && x) {
       x.click();
     }
   }
 
   function openMobileDrawer() {
-    var d = $("mdrawer");
     var m = $("mmenu");
-    if (d && !d.classList.contains("open") && m) {
+    if (!document.body.classList.contains("mopen") && m) {
       m.click();
     }
   }
@@ -4914,7 +4931,7 @@
       title: "Explain Lesson & Stop Lab",
       body: "Use Explain this lesson for an audio walkthrough in multiple languages and speeds, and Stop Lab when you're done for the day.",
       desktop: "#lhb, #lab",
-      mobile: "#lhb, #mstop",
+      mobile: "#mexp, #mstop",
       before: function () {
         closeLessonSidebar();
         closeEscbeeSidebar();
@@ -4941,19 +4958,24 @@
     var sel = isMobile() ? step.mobile : step.desktop;
     if (!sel) return null;
     var els = document.querySelectorAll(sel);
-    var left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
     var firstEl = null;
     for (var i = 0; i < els.length; i++) {
-      var rect = els[i].getBoundingClientRect();
+      var r0 = els[i].getBoundingClientRect();
+      if (r0.width === 0 && r0.height === 0) continue;
+      firstEl = els[i];
+      break;
+    }
+    if (!firstEl) return null;
+    firstEl.scrollIntoView({ block: "nearest", inline: "nearest" });
+    var left = Infinity, top = Infinity, right = -Infinity, bottom = -Infinity;
+    for (var j = 0; j < els.length; j++) {
+      var rect = els[j].getBoundingClientRect();
       if (rect.width === 0 && rect.height === 0) continue;
-      if (!firstEl) firstEl = els[i];
       left = Math.min(left, rect.left);
       top = Math.min(top, rect.top);
       right = Math.max(right, rect.right);
       bottom = Math.max(bottom, rect.bottom);
     }
-    if (!firstEl) return null;
-    firstEl.scrollIntoView({ block: "nearest", inline: "nearest" });
     return {
       left: left,
       top: top,
@@ -5027,10 +5049,10 @@
       left = Math.min(Math.max(12, r.left), vw - cardW - 12);
     } else if (r.right + gap + cardW <= vw - 12) {
       left = r.right + gap;
-      top = Math.min(Math.max(12, r.top + 16), vh - cardH - 12);
+      top = Math.max(12, Math.min(r.top + 16, vh - cardH - 12));
     } else if (r.left - gap - cardW >= 12) {
       left = r.left - cardW - gap;
-      top = Math.min(Math.max(12, r.top + 16), vh - cardH - 12);
+      top = Math.max(12, Math.min(r.top + 16, vh - cardH - 12));
     } else {
       top = Math.max(12, (vh - cardH) / 2);
       left = Math.max(12, (vw - cardW) / 2);

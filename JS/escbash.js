@@ -362,6 +362,12 @@
           self._journeyHoverPaused = false;
           self._lastTs = null;
         });
+        deckEl.addEventListener('click', function () {
+          if (window.innerWidth <= 820) {
+            self._journeyHoverPaused = !self._journeyHoverPaused;
+            self._lastTs = null;
+          }
+        });
       }
 
       var observer = new IntersectionObserver(function () {
@@ -933,7 +939,7 @@
       document.addEventListener("click", (e) => {
         if (e.defaultPrevented) return;
         const menuHashLink = e.target.closest(".top-header a[href^=\"#\"]");
-        if (menuHashLink) {
+        if (menuHashLink && menuHashLink.getAttribute("href") === "#") {
           e.preventDefault();
           return;
         }
@@ -970,6 +976,174 @@
           if (target) {
             target.scrollIntoView({ behavior: "smooth", block: "center" });
           }
+        }
+      });
+    })();
+
+    (function initLandingMobileNav() {
+      const header = document.querySelector(".top-header");
+      const headerInner = header && header.querySelector(".header-inner");
+      const navLinks = headerInner && headerInner.querySelector(".nav-links");
+      const topActions = headerInner && headerInner.querySelector(".top-actions");
+
+      const syncHeaderHeight = () => {
+        if (!header) return;
+        const h = Math.round(header.getBoundingClientRect().height);
+        if (h > 0) document.documentElement.style.setProperty("--header-h", h + "px");
+      };
+      syncHeaderHeight();
+      if (header && typeof ResizeObserver !== "undefined") {
+        new ResizeObserver(syncHeaderHeight).observe(header);
+      }
+      window.addEventListener("resize", syncHeaderHeight);
+
+      if (!headerInner || !navLinks || !topActions || document.getElementById("mobileMenuBtn")) return;
+
+      const burger = document.createElement("button");
+      burger.type = "button";
+      burger.className = "nav-hamburger";
+      burger.id = "mobileMenuBtn";
+      burger.setAttribute("aria-label", "Open navigation menu");
+      burger.setAttribute("aria-expanded", "false");
+      burger.setAttribute("aria-controls", "mobileNavDrawer");
+      burger.innerHTML =
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+        '<line x1="3" y1="6" x2="21" y2="6"></line>' +
+        '<line x1="3" y1="12" x2="21" y2="12"></line>' +
+        '<line x1="3" y1="18" x2="21" y2="18"></line>' +
+        "</svg>";
+      topActions.appendChild(burger);
+
+      const backdrop = document.createElement("div");
+      backdrop.className = "mob-drawer-backdrop";
+      backdrop.id = "mobileNavBackdrop";
+
+      const drawer = document.createElement("aside");
+      drawer.className = "mob-drawer";
+      drawer.id = "mobileNavDrawer";
+      drawer.setAttribute("aria-label", "Mobile Navigation");
+      drawer.setAttribute("aria-hidden", "true");
+
+      const head = document.createElement("div");
+      head.className = "mob-drawer-head";
+      const title = document.createElement("span");
+      title.className = "mob-drawer-title";
+      title.textContent = "Navigation";
+      const closeBtn = document.createElement("button");
+      closeBtn.type = "button";
+      closeBtn.className = "mob-drawer-close";
+      closeBtn.setAttribute("aria-label", "Close navigation menu");
+      closeBtn.innerHTML =
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">' +
+        '<line x1="18" y1="6" x2="6" y2="18"></line>' +
+        '<line x1="6" y1="6" x2="18" y2="18"></line>' +
+        "</svg>";
+      head.appendChild(title);
+      head.appendChild(closeBtn);
+      drawer.appendChild(head);
+
+      const list = document.createElement("nav");
+      list.className = "mob-nav-list";
+      list.setAttribute("aria-label", "Mobile Navigation Links");
+
+      const setDrawerOpen = (open) => {
+        drawer.classList.toggle("open", open);
+        backdrop.classList.toggle("open", open);
+        burger.setAttribute("aria-expanded", open ? "true" : "false");
+        drawer.setAttribute("aria-hidden", open ? "false" : "true");
+        document.documentElement.style.overflow = open ? "hidden" : "";
+        if (open) closeBtn.focus();
+        else burger.focus();
+      };
+
+      const syncAccordion = (srcDrop, accPanel) => {
+        if (!srcDrop || !accPanel) return;
+        accPanel.innerHTML = "";
+        const top = srcDrop.querySelector(".cm-top");
+        const grid = srcDrop.querySelector(".cm-grid");
+        const foot = srcDrop.querySelector(".cm-foot");
+        if (top) accPanel.appendChild(top.cloneNode(true));
+        if (grid) accPanel.appendChild(grid.cloneNode(true));
+        if (foot) accPanel.appendChild(foot.cloneNode(true));
+      };
+
+      Array.from(navLinks.children).forEach((item) => {
+        if (item.classList.contains("course-trigger")) {
+          const targetId = item.getAttribute("aria-controls");
+          const srcDrop = targetId && document.getElementById(targetId);
+          const accBtn = document.createElement("button");
+          accBtn.type = "button";
+          accBtn.className = "mob-acc-btn";
+          accBtn.setAttribute("aria-expanded", "false");
+          accBtn.innerHTML =
+            '<span></span><svg class="mob-acc-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"></polyline></svg>';
+          accBtn.querySelector("span").textContent = item.textContent.trim();
+
+          const accPanel = document.createElement("div");
+          accPanel.className = "mob-acc-panel";
+
+          accBtn.addEventListener("click", () => {
+            const next = !accPanel.classList.contains("open");
+            if (next) syncAccordion(srcDrop, accPanel);
+            accPanel.classList.toggle("open", next);
+            accBtn.setAttribute("aria-expanded", next ? "true" : "false");
+          });
+
+          accPanel.addEventListener("click", (e) => {
+            if (!srcDrop) return;
+            const tab = e.target.closest(".cm-tab");
+            if (tab) {
+              const origTab = srcDrop.querySelector('.cm-tab[data-cm-tab="' + tab.dataset.cmTab + '"]');
+              if (origTab) origTab.click();
+              syncAccordion(srcDrop, accPanel);
+              return;
+            }
+            const card = e.target.closest(".cm-card");
+            if (card) {
+              const name = card.dataset.courseName || card.dataset.roadmapName || "";
+              const origCard = Array.from(srcDrop.querySelectorAll(".cm-card")).find(
+                (c) => (c.dataset.courseName || c.dataset.roadmapName || "") === name,
+              );
+              setDrawerOpen(false);
+              if (origCard) origCard.click();
+              return;
+            }
+            const allBtn = e.target.closest(".cm-all");
+            if (allBtn) {
+              e.preventDefault();
+              const origAll = srcDrop.querySelector(".cm-all");
+              setDrawerOpen(false);
+              if (origAll) origAll.click();
+            }
+          });
+
+          list.appendChild(accBtn);
+          list.appendChild(accPanel);
+        } else if (item.tagName === "A") {
+          const a = document.createElement("a");
+          a.className = "mob-nav-link" + (item.classList.contains("active") ? " active" : "");
+          a.href = item.getAttribute("href") || "#";
+          a.textContent = item.textContent.trim();
+          a.addEventListener("click", () => setDrawerOpen(false));
+          list.appendChild(a);
+        }
+      });
+
+      drawer.appendChild(list);
+      document.body.appendChild(backdrop);
+      document.body.appendChild(drawer);
+
+      burger.addEventListener("click", () => setDrawerOpen(true));
+      closeBtn.addEventListener("click", () => setDrawerOpen(false));
+      backdrop.addEventListener("click", () => setDrawerOpen(false));
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && drawer.classList.contains("open")) {
+          setDrawerOpen(false);
+        }
+      });
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 768 && drawer.classList.contains("open")) {
+          setDrawerOpen(false);
         }
       });
     })();

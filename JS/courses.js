@@ -321,7 +321,7 @@
           label +
           '</span><span class="part-rail-r" aria-hidden="true"></span></h3>';
         const grid = document.createElement("div");
-        grid.className = "hub-grid" + (isList ? " list-view" : "");
+        grid.className = "hub-grid" + (isList ? " is-list list-view" : "");
         track.items.forEach((c, idx) => grid.appendChild(buildCard(c, label, idx)));
         section.appendChild(grid);
         container.appendChild(section);
@@ -331,7 +331,7 @@
       if (track) {
         const label = TRACK_LABELS[activeTrack] || activeTrack;
         const grid = document.createElement("div");
-        grid.className = "hub-grid" + (isList ? " list-view" : "");
+        grid.className = "hub-grid" + (isList ? " is-list list-view" : "");
         track.items.forEach((c, idx) => grid.appendChild(buildCard(c, label, idx)));
         container.appendChild(grid);
       }
@@ -359,7 +359,11 @@
     currentView = view === "list" ? "list" : "grid";
     const isList = currentView === "list";
     document.documentElement.dataset.rmView = currentView;
-    container.querySelectorAll(".hub-grid").forEach((g) => g.classList.toggle("list-view", isList));
+    container.querySelectorAll(".hub-grid").forEach((g) => {
+      g.classList.toggle("is-list", isList);
+      g.classList.toggle("list-view", isList);
+    });
+    try { localStorage.setItem("escbash_roadmaps_view_v1", currentView); } catch (e) {}
     if (viewGridBtn) {
       viewGridBtn.classList.toggle("active", !isList);
       viewGridBtn.setAttribute("aria-pressed", String(!isList));

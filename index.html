@@ -9,6 +9,7 @@
 
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <script src="JS/theme-init.js"></script>
   <title>escbash - playground for engineering</title>
   <link rel="stylesheet" href="CSS/escbash1.css">
@@ -19,7 +20,7 @@
 
 <body>
 <div id="dc-root"><div class="sc-host">
-    <div data-canvas-width="1440" data-canvas-height="4700" data-document-role="page" data-label="B · Lab Window" style="position: relative; color: var(--ink); font-family: Manrope, system-ui, sans-serif; min-height: 100%; overflow-x: clip;">
+    <div data-canvas-width="1440" data-canvas-height="4700" data-document-role="page" data-label="B · Lab Window" style="position: relative; color: var(--ink); font-family: Manrope, system-ui, sans-serif; min-height: 100%;">
 
       
       <header class="top-header">
@@ -61,7 +62,7 @@
               </svg>
             </button>
           </div>
-          <div class="cm-panel" id="courseMenuDropdown" role="region" aria-label="Courses menu" style="left: 0px; width: 640px;">
+          <div class="cm-panel" id="courseMenuDropdown" role="region" aria-label="Courses menu">
             <div class="cm-top">
               <div class="cm-switch" role="tablist" aria-label="Course tracks">
                 
@@ -193,7 +194,7 @@
               </a>
             </div>
           </div>
-          <div class="cm-panel" id="roadmapMenuDropdown" role="region" aria-label="Roadmaps menu" style="left: 0px; width: 640px;">
+          <div class="cm-panel" id="roadmapMenuDropdown" role="region" aria-label="Roadmaps menu">
             <div class="cm-top">
               <div class="cm-switch" role="tablist" aria-label="Roadmap tracks">
                 
@@ -345,16 +346,16 @@
 
       <div style="position: relative;">
         
-        <section id="top" class="fade-up visible" style="max-width: 1200px; margin: 0px auto; padding: 72px 32px 0px; text-align: center;">
+        <section id="top" class="fade-up visible landing-sec landing-hero">
           <span class="anim-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 12px 20px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font: 500 13px &quot;IBM Plex Mono&quot;, monospace; color: var(--mute); position: static;"><span style="width: 7px; height: 7px; border-radius: 50%; background: var(--lamp);"></span>everything you need, right in
             your browser.</span>
-          <h1 class="anim-title" style="margin: 28px auto 0px; max-width: 1136px; font-size: clamp(26px, 6vw, 84px); line-height: 1.04; letter-spacing: -0.04em; font-weight: 800; text-wrap: balance; color: var(--ink);">
-            <span style="display: block; white-space: nowrap;"><span style="color: var(--lamp);">Playground</span> for
+          <h1 class="anim-title" style="margin: 28px auto 0px; max-width: 1136px; font-size: clamp(28px, 6vw, 84px); line-height: 1.04; letter-spacing: -0.04em; font-weight: 800; text-wrap: balance; color: var(--ink);">
+            <span class="hero-line-1" style="display: block;"><span style="color: var(--lamp);">Playground</span> for
               Engineering</span><span style="display: block; font-size: 0.6em; font-weight: 700; margin-top: 0.2em; color: var(--ink);">from Knowing to
               <span style="color: var(--lamp);">Doing</span></span>
           </h1>
-          <p class="anim-sub" style="margin: 26px auto 0px; max-width: 680px; font-size: 19px; line-height: 1.6; color: var(--mute); text-wrap: pretty;">
-            A hands-on platform to learn, experiment, and build practical skills<br>&nbsp;in DevOps, Cloud, SRE, and AI.
+          <p class="anim-sub" style="margin: 26px auto 0px; max-width: 680px; font-size: clamp(15.5px, 2.2vw, 19px); line-height: 1.6; color: var(--mute); text-wrap: pretty;">
+            A hands-on platform to learn, experiment, and build practical skills<br class="d-br"> in DevOps, Cloud, SRE, and AI.
           </p>
           <div class="anim-cta" style="margin-top: 36px; display: flex; flex-wrap: wrap; justify-content: center; gap: 14px;">
             <a href="#start" style="display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0px 26px; border-radius: 12px; background: var(--ink); color: var(--bg); font-weight: 700; font-size: 16px;">Learn
@@ -370,7 +371,7 @@
         </section>
 
         
-        <section id="lab-window" class="fade-up visible" style="max-width: 1200px; margin: 56px auto 0px; padding: 0px 32px;">
+        <section id="lab-window" class="fade-up visible landing-lab-win">
           <div class="anim-hero-card" style="border: 1px solid var(--line); border-radius: 16px; background: var(--surface); overflow: hidden; box-shadow: 0 36px 90px -20px var(--term-shadow),var(--lift);">
             
             <div id="labScreenContainer" style="position: relative; width: 100%; aspect-ratio: 16 / 10; background: var(--term); overflow: hidden;">
@@ -430,7 +431,7 @@
         </section>
 
         
-        <section id="journey" style="max-width: 1320px; margin: 0px auto; padding: 128px 32px 0px;">
+        <section id="journey" class="landing-sec landing-journey">
           <div class="fade-up" style="text-align: center;">
             <h2 style="margin: 0px auto; max-width: 720px; font-size: clamp(32px, 4.6vw, 56px); letter-spacing: -0.04em; line-height: 1.06; font-weight: 800; text-wrap: balance; color: var(--ink);">
               From first lesson to certificate</h2>
@@ -545,31 +546,31 @@
                   </div>
                   <div class="jdeck-card" data-jcard="1" data-phase="0">
                     <div class="jdeck-phase jdeck-phase-0">
-                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-2-dark.png" alt="Read lesson in the escbash lab" loading="eager" decoding="async">
-                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-2-light.png" alt="Read lesson in the escbash lab" loading="eager" decoding="async">
+                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-2-dark.png" alt="Read lesson in the escbash lab" loading=\"lazy\" decoding="async">
+                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-2-light.png" alt="Read lesson in the escbash lab" loading=\"lazy\" decoding="async">
                     </div>
                     <div class="jdeck-phase jdeck-phase-1">
-                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-2b-dark.png" alt="Run commands in the live escbash terminal" loading="eager" decoding="async">
-                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-2b-light.png" alt="Run commands in the live escbash terminal" loading="eager" decoding="async">
+                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-2b-dark.png" alt="Run commands in the live escbash terminal" loading=\"lazy\" decoding="async">
+                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-2b-light.png" alt="Run commands in the live escbash terminal" loading=\"lazy\" decoding="async">
                     </div>
                   </div>
                   <div class="jdeck-card" data-jcard="2" data-phase="0">
                     <div class="jdeck-phase jdeck-phase-0">
-                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-3a-dark.png" alt="Complete tasks in the escbash lab" loading="eager" decoding="async">
-                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-3a-light.png" alt="Complete tasks in the escbash lab" loading="eager" decoding="async">
+                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-3a-dark.png" alt="Complete tasks in the escbash lab" loading=\"lazy\" decoding="async">
+                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-3a-light.png" alt="Complete tasks in the escbash lab" loading=\"lazy\" decoding="async">
                     </div>
                     <div class="jdeck-phase jdeck-phase-1">
-                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-3-dark.png" alt="Tasks graded and passed in the escbash lab" loading="eager" decoding="async">
-                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-3-light.png" alt="Tasks graded and passed in the escbash lab" loading="eager" decoding="async">
+                      <img class="jdeck-img jdeck-img-dark" src="images/journey/step-3-dark.png" alt="Tasks graded and passed in the escbash lab" loading=\"lazy\" decoding="async">
+                      <img class="jdeck-img jdeck-img-light" src="images/journey/step-3-light.png" alt="Tasks graded and passed in the escbash lab" loading=\"lazy\" decoding="async">
                     </div>
                   </div>
                   <div class="jdeck-card" data-jcard="3">
-                    <img class="jdeck-img jdeck-img-dark" src="images/journey/step-4-dark.png" alt="Complete quizzes with instant explanations" loading="eager" decoding="async">
-                    <img class="jdeck-img jdeck-img-light" src="images/journey/step-4-light.png" alt="Complete quizzes with instant explanations" loading="eager" decoding="async">
+                    <img class="jdeck-img jdeck-img-dark" src="images/journey/step-4-dark.png" alt="Complete quizzes with instant explanations" loading=\"lazy\" decoding="async">
+                    <img class="jdeck-img jdeck-img-light" src="images/journey/step-4-light.png" alt="Complete quizzes with instant explanations" loading=\"lazy\" decoding="async">
                   </div>
                   <div class="jdeck-card" data-jcard="4">
-                    <img class="jdeck-img jdeck-img-dark" src="images/journey/step-5-dark.png" alt="Earn a verified certificate of completion" loading="eager" decoding="async">
-                    <img class="jdeck-img jdeck-img-light" src="images/journey/step-5-light.png" alt="Earn a verified certificate of completion" loading="eager" decoding="async">
+                    <img class="jdeck-img jdeck-img-dark" src="images/journey/step-5-dark.png" alt="Earn a verified certificate of completion" loading=\"lazy\" decoding="async">
+                    <img class="jdeck-img jdeck-img-light" src="images/journey/step-5-light.png" alt="Earn a verified certificate of completion" loading=\"lazy\" decoding="async">
                   </div>
                 </div>
               </div>
@@ -584,7 +585,7 @@
         </section>
 
         
-        <section id="paths" style="max-width: 1200px; margin: 0px auto; padding: 128px 32px 0px;">
+        <section id="paths" class="landing-sec">
           <div class="fade-up" style="text-align: center;">
             <h2 style="margin: 0px auto; max-width: 720px; font-size: clamp(32px, 4.6vw, 56px); letter-spacing: -0.04em; line-height: 1.06; font-weight: 800; text-wrap: balance; color: var(--ink);">
               Choose your path. Learn by building.
@@ -650,7 +651,7 @@
         </section>
 
         
-        <section id="interview-qa" style="max-width: 1200px; margin: 0px auto; padding: 128px 32px 0px;">
+        <section id="interview-qa" class="landing-sec">
           <div class="fade-up" style="text-align: center;">
             <h2 style="margin: 14px auto 0px; max-width: 760px; font-size: clamp(32px, 4.6vw, 56px); letter-spacing: -0.04em; line-height: 1.06; font-weight: 800; text-wrap: balance; color: var(--ink);">
               Ace your next engineering interview</h2>
@@ -737,16 +738,16 @@
         </section>
 
         
-        <section id="community" style="max-width: 1200px; margin: 0px auto; padding: 128px 32px 0px;">
+        <section id="community" class="landing-sec">
           <div class="fade-up" style="text-align: center;">
-            <h2 style="margin: 0px auto; max-width: 760px; font-size: clamp(32px, 4.6vw, 56px); letter-spacing: -0.04em; line-height: 1.06; font-weight: 800; text-wrap: balance; color: var(--ink);">
-              Great things<br>happen together.</h2>
-            <p style="margin: 18px auto 0px; max-width: 580px; font-size: 18px; line-height: 1.6; color: var(--mute);">Learn from
+            <h2 style="margin: 0px auto; max-width: 760px; font-size: clamp(28px, 4.6vw, 56px); letter-spacing: -0.04em; line-height: 1.06; font-weight: 800; text-wrap: balance; color: var(--ink);">
+              Great things<br class="d-br"> happen together.</h2>
+            <p style="margin: 18px auto 0px; max-width: 580px; font-size: clamp(15.5px, 2vw, 18px); line-height: 1.6; color: var(--mute);">Learn from
               others, share what you know, and grow through collaboration.</p>
           </div>
-          <div style="margin-top: 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
+          <div class="comm-split" style="margin-top: 56px; display: flex; flex-wrap: wrap; gap: 48px; align-items: center;">
             
-            <div class="fade-up delay-1" style="flex: 1 1 360px; max-width: 420px; min-width: 280px; display: flex; flex-direction: column; justify-content: center;">
+            <div class="fade-up delay-1" style="flex: 1 1 360px; max-width: 420px; min-width: 0; display: flex; flex-direction: column; justify-content: center;">
               
               <div style="display: flex; align-items: center;">
                 <div class="comm-avatar-ring" style="border: 2.5px solid rgb(240, 203, 73); z-index: 1; background: rgb(240, 203, 73);">
@@ -826,7 +827,7 @@
             </div>
 
             
-            <div class="fade-up delay-2" style="flex: 1.6 1 540px; min-width: 300px;">
+            <div class="fade-up delay-2" style="flex: 1.6 1 540px; min-width: 0;">
               <div class="comm-mockup">
                 
                 <div class="comm-sidebar">
@@ -1025,7 +1026,7 @@
         </section>
 
         
-        <section id="voices" style="max-width: 1200px; margin: 0px auto; padding: 128px 32px 0px;">
+        <section id="voices" class="landing-sec">
           <div class="fade-up" style="text-align: center;">
             <h2 style="margin: 14px auto 0px; max-width: 760px; font-size: clamp(32px, 4.6vw, 56px); letter-spacing: -0.04em; line-height: 1.06; font-weight: 800; text-wrap: balance; color: var(--ink);">
               What Learners Say</h2>
@@ -1206,9 +1207,9 @@
         </section>
 
         
-        <section id="start" class="fade-up" style="max-width: 1200px; margin: 128px auto 0px; padding: 0px 32px;">
+        <section id="start" class="fade-up landing-start">
           <div class="cta-card">
-            <div style="position: absolute; left: 50%; bottom: -260px; width: 700px; height: 400px; margin-left: -350px; background: radial-gradient(closest-side,color-mix(in srgb, var(--lamp) var(--glow), transparent),transparent); pointer-events: none;">
+            <div style="position: absolute; left: 50%; bottom: -260px; width: min(700px, 100%); height: 400px; transform: translateX(-50%); background: radial-gradient(closest-side,color-mix(in srgb, var(--lamp) var(--glow), transparent),transparent); pointer-events: none;">
             </div>
             <div class="cta-split">
               <div class="cta-copy">
@@ -1256,8 +1257,8 @@
         </section>
 
         
-        <footer class="foot fade-up" style="width: 100%; margin: 96px 0px 0px; padding: 0px clamp(20px, 3.5vw, 48px) 24px; box-sizing: border-box; height: auto;">
-          <div class="foot-grid" style="border-top: 1px solid var(--line); padding-top: 48px; display: grid; grid-template-columns: minmax(240px, 1.8fr) repeat(3, minmax(140px, 1fr)); gap: clamp(24px, 4vw, 48px);">
+        <footer class="foot fade-up">
+          <div class="foot-grid">
             <div style="max-width: 320px;">
               <a href="index.html" aria-label="escbash home" style="display: inline-flex; align-items: center; gap: 8px;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: var(--pill-bg); border: 1px solid var(--line); color: var(--lamp); font: 600 12px &quot;IBM Plex Mono&quot;, monospace;">esc</span><span style="font: 600 17px &quot;IBM Plex Mono&quot;, monospace; color: var(--lamp);">bash</span></a>
               <p style="margin: 14px 0px 0px; color: var(--mute); font-size: 14px; line-height: 1.6;">Hands-on labs on real Linux

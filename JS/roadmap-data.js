@@ -782,7 +782,7 @@
           const det = document.getElementById("course-detail");
           if (!det) return;
           det.classList.add("visible");
-          det.scrollIntoView({ behavior: "smooth", block: "center" });
+          det.scrollIntoView({ behavior: "smooth", block: window.innerWidth <= 768 ? "start" : "center" });
           det.classList.remove("is-focus-pulse");
           void det.offsetWidth;
           det.classList.add("is-focus-pulse");

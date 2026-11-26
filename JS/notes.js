@@ -133,7 +133,11 @@ async function show(id,opts={}){
 
     renderPreviewBody(n);
     cancelAnims();
-    if(window.scrollY>40)window.scrollTo({top:0,behavior:reducedMotion()?"auto":"smooth"});
+    if(window.innerWidth<=820){
+      prev.scrollIntoView({behavior:reducedMotion()?"auto":"smooth",block:"start"});
+    }else if(window.scrollY>40){
+      window.scrollTo({top:0,behavior:reducedMotion()?"auto":"smooth"});
+    }
 
     anim(prevStage,[
       {opacity:0,transform:"translateY("+(14*dir)+"px)"},

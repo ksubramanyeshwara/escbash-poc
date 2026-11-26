@@ -281,7 +281,7 @@
         row-gap: 30px;
         position: relative;
       }
-      @media (min-width: 960px) {
+      @media (min-width: 961px) {
         .rm-grid {
           grid-template-columns: repeat(3, minmax(0, 1fr));
           column-gap: 32px;
@@ -477,7 +477,7 @@
         width: 16px;
         height: 26px;
       }
-      @media (min-width: 960px) {
+      @media (min-width: 961px) {
         .rm-conn-mob {
           display: none;
         }
@@ -1029,33 +1029,70 @@
       .foot { width: 100%; box-sizing: border-box; }
 
       /* Foot grid & additional header styles */
-      .foot { width: 100%; box-sizing: border-box; }
-      .foot-grid {
-        border-top: 1px solid var(--line);
-        padding-top: 48px;
-        display: grid;
-        grid-template-columns: minmax(240px, 1.8fr) repeat(3, minmax(140px, 1fr));
-        gap: clamp(24px, 4vw, 48px);
-      }
-      @media (max-width: 960px) {
-        .foot-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 40px 32px !important;
-        }
-      }
-      @media (max-width: 540px) {
-        .foot-grid {
-          grid-template-columns: 1fr !important;
-          gap: 36px !important;
-        }
-      }
-      .foot a { color: var(--mute); transition: color 0.15s ease; text-decoration: none; }
-      .foot a:hover { color: var(--ink); }
       .discord-btn:hover {
         color: #5865f2 !important;
         background: rgba(88, 101, 242, 0.14) !important;
         border-color: rgba(88, 101, 242, 0.4) !important;
         transform: scale(1.12);
+      }
+
+      /* ===== PHASE 5 RESPONSIVE POLISH (ROADMAP DATA) ===== */
+      .rm-outcome {
+        align-items: flex-start;
+      }
+      .rm-goal-illus svg {
+        max-width: 100%;
+        height: auto;
+      }
+      @media (max-width: 960px) {
+        .rm-bento-hero {
+          min-height: 0;
+        }
+        .rm-bento-title {
+          white-space: normal;
+          font-size: clamp(22px, 5vw, 31px);
+        }
+      }
+      @media (min-width: 641px) and (max-width: 960px) {
+        .rm-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px 20px;
+        }
+        .rm-conn-mob {
+          display: none;
+        }
+      }
+      @media (max-width: 640px) {
+        .rm-card-desc {
+          min-height: 0;
+        }
+        .rm-detail {
+          padding: 16px;
+        }
+        .rm-detail-name-row {
+          flex-wrap: wrap;
+        }
+        .rm-detail-prog {
+          min-width: 0;
+          width: 100%;
+        }
+        #detailActionBtn {
+          width: 100%;
+          justify-content: center;
+        }
+      }
+      @media (max-width: 480px) {
+        .rm-bento-hero {
+          padding: 16px;
+          gap: 12px;
+        }
+        .rm-bento-illus svg {
+          width: 68px;
+          height: 58px;
+        }
+        .rm-goal-banner {
+          padding: 20px 16px;
+        }
       }
       .nav-signin {
         font-size: 14.5px;
@@ -1070,3 +1107,7 @@
       .nav-signin:hover {
         background: color-mix(in srgb, var(--ink) 8%, transparent);
       }
+
+@media (pointer: coarse) {
+  .rm-status-btn, .rm-jump-btn { width: 40px; height: 40px; }
+}

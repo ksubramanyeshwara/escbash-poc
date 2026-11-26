@@ -6,6 +6,7 @@
 <title>Notes · Linux Lighthouse</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500&family=Manrope:wght@600;700&display=swap">
 <script src="JS/theme-init.js"></script>
+<link rel="stylesheet" href="CSS/roadmap-common.css" />
 <link rel="stylesheet" href="CSS/notes.css" />
 </head>
 <body data-all-courses-href="linux-course.html#topics">
@@ -48,7 +49,7 @@
               </svg>
             </button>
           </div>
-          <div class="cm-panel" id="courseMenuDropdown" role="region" aria-label="Courses menu" style="left: 0px; width: 640px;">
+          <div class="cm-panel" id="courseMenuDropdown" role="region" aria-label="Courses menu">
             <div class="cm-top">
               <div class="cm-switch" role="tablist" aria-label="Course tracks">
                 
@@ -180,7 +181,7 @@
               </a>
             </div>
           </div>
-          <div class="cm-panel" id="roadmapMenuDropdown" role="region" aria-label="Roadmaps menu" style="left: 0px; width: 640px;">
+          <div class="cm-panel" id="roadmapMenuDropdown" role="region" aria-label="Roadmaps menu">
             <div class="cm-top">
               <div class="cm-switch" role="tablist" aria-label="Roadmap tracks">
                 
@@ -338,15 +339,15 @@
   </section>
   <section id="splitView" hidden aria-label="Note preview">
     <div class="split">
-      <nav class="nside" aria-label="Notes in this module"><div class="sm" id="sm"></div><div id="side" style="display:grid;gap:10px"></div><a class="back" href="#" data-back>← All modules</a></nav>
+      <nav class="nside" aria-label="Notes in this module"><div class="sm" id="sm"></div><div id="side"></div><a class="back" href="#" data-back>← All modules</a></nav>
       <article class="prev" id="prev" tabindex="-1"><div class="prev-stage" id="prevStage"></div></article>
     </div>
   </section>
 </main>
 </div>
 
-<footer class="foot fade-up" style="width: 100%; margin: 96px 0px 0px; padding: 0px clamp(20px, 3.5vw, 48px) 24px; box-sizing: border-box; height: auto;">
-          <div class="foot-grid" style="border-top: 1px solid var(--line); padding-top: 48px; display: grid; grid-template-columns: minmax(240px, 1.8fr) repeat(3, minmax(140px, 1fr)); gap: clamp(24px, 4vw, 48px);">
+        <footer class="foot fade-up">
+          <div class="foot-grid">
             <div style="max-width: 320px;">
               <a href="index.html" aria-label="escbash home" style="display: inline-flex; align-items: center; gap: 8px;"><span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 8px; background: var(--pill-bg); border: 1px solid var(--line); color: var(--lamp); font: 600 12px &quot;IBM Plex Mono&quot;, monospace;">esc</span><span style="font: 600 17px &quot;IBM Plex Mono&quot;, monospace; color: var(--lamp);">bash</span></a>
               <p style="margin: 14px 0px 0px; color: var(--mute); font-size: 14px; line-height: 1.6;">Hands-on labs on real Linux

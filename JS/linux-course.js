@@ -611,6 +611,7 @@ let num = 0;
             ...document.querySelectorAll(".cert .head,.quick .head"),
           ],
           side = document.querySelector(".side");
+        if (!heads.length || !side) return;
         let lastW = -1,
           raf = 0;
         function sync() {
@@ -2965,12 +2966,14 @@ let num = 0;
           certOverlay.hidden = false;
           void certOverlay.offsetHeight; // force reflow for smooth transition
           certOverlay.classList.add("open");
+          document.documentElement.style.overflow = "hidden";
           document.body.style.overflow = "hidden";
         }
 
         function closeCertModal() {
           if (!certOverlay) return;
           certOverlay.classList.remove("open");
+          document.documentElement.style.overflow = "";
           document.body.style.overflow = "";
           setTimeout(() => {
             if (!certOverlay.classList.contains("open")) {
@@ -2980,6 +2983,7 @@ let num = 0;
         }
 
         function triggerConfetti() {
+          if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
           const canvas = document.createElement("canvas");
           canvas.style.position = "fixed";
           canvas.style.inset = "0";
