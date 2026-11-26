@@ -1000,12 +1000,11 @@ function toast(msg) {
     backdrop.classList.toggle("open", open);
     burger.setAttribute("aria-expanded", open ? "true" : "false");
     drawer.setAttribute("aria-hidden", open ? "false" : "true");
-    document.documentElement.style.overflow = open ? "hidden" : "";
     if (open) {
       if (window.__escbashMegaMenu) window.__escbashMegaMenu.closeAll();
-      closeBtn.focus();
+      closeBtn.focus({ preventScroll: true });
     } else {
-      burger.focus();
+      burger.focus({ preventScroll: true });
     }
   };
 

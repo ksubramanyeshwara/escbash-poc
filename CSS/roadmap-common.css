@@ -827,6 +827,7 @@
       /* ===== MOBILE SLIDE-OVER DRAWER ===== */
       .mob-drawer-backdrop {
         display: none;
+        touch-action: none;
         position: fixed;
         inset: 0;
         background: rgba(0, 0, 0, 0.45);

@@ -1051,9 +1051,8 @@
         backdrop.classList.toggle("open", open);
         burger.setAttribute("aria-expanded", open ? "true" : "false");
         drawer.setAttribute("aria-hidden", open ? "false" : "true");
-        document.documentElement.style.overflow = open ? "hidden" : "";
-        if (open) closeBtn.focus();
-        else burger.focus();
+        if (open) closeBtn.focus({ preventScroll: true });
+        else burger.focus({ preventScroll: true });
       };
 
       const syncAccordion = (srcDrop, accPanel) => {
